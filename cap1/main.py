@@ -43,10 +43,10 @@ match firewall:
     case _:
         print("Opcion no valida, seleccione nuevamente")
         firewall = input("ingrese el estado del firewall: ")
-cpu = int(input("ingrese el porcentaje de uso de la cpu: "))
-ram = int(input("ingrese el porcentaje de uso de la ram: "))
-almacenamiento_disco = int(input("ingrese el espacio total del disco: "))
-espacio_disco = int(input("ingrese el espacio usado en el disco: "))
+cpu = float(input("ingrese el porcentaje de uso de la cpu: "))
+ram = float(input("ingrese el porcentaje de uso de la ram: "))
+almacenamiento_disco = float(input("ingrese el espacio total del disco: "))
+espacio_disco = float(input("ingrese el espacio usado en el disco: "))
 procesos_activos = int(input("ingrese la cantidad de procesos activos: "))
 
 # Variables de salida
@@ -68,49 +68,51 @@ nivel_riesgo = componentes.nivel_riesgo(
 )
 
 # Menu
-opcion = int( input("1. monitoreo de componentes\n""2. Diagnostico del servidor\n""3. salir\n" ))
-match opcion:
-        case 1:
-            # monitoreo de componentes
-            componentes.monitoreo_estado_servidor(
-                nombre_servidor,
-                admin_name,
-                sistema_operativo,
-                cpu,
-                ram,
-                rendimiento_disco,
-                espacio_disco,
-                procesos_activos,
-                firewall,
-                rendimiento_cpu,
-                rendimiento_ram,
-                rendimiento_disco,
-                estado_almacenamiento,
-                estado_procesos,
-                nivel_riesgo
-            )
-        case 2:
-            # Resultado esperado
-            print(f"\nDiagnostico del servidor: {nombre_servidor}\nSistema operativo: {sistema_operativo}\nUbicacion: {ubicacion_servidor}")
-            componentes.problemas_detectados(
-                cpu,
-                ram,
-                espacio_disco,
-                procesos_activos,
-                firewall,
-                estado_almacenamiento
-            )
-            componentes.recomendaciones(
-                cpu,
-                ram,
-                procesos_activos,
-                firewall,
-                estado_almacenamiento,
-                nivel_riesgo
-            )
-        case 3:
-            print("saliendo...")
-        case _:
-            print("Opcion no valida")
-            opcion = int(
-                input("1. monitoreo de componentes\n""2. Diagnostico del servidor\n""3. salir\n"))
+while True:
+    opcion = int( input("1. monitoreo de componentes\n""2. Diagnostico del servidor\n""3. salir\n" ))
+    match opcion:
+            case 1:
+                # monitoreo de componentes
+                componentes.monitoreo_estado_servidor(
+                    nombre_servidor,
+                    admin_name,
+                    sistema_operativo,
+                    cpu,
+                    ram,
+                    rendimiento_disco,
+                    espacio_disco,
+                    procesos_activos,
+                    firewall,
+                    rendimiento_cpu,
+                    rendimiento_ram,
+                    rendimiento_disco,
+                    estado_almacenamiento,
+                    estado_procesos,
+                    nivel_riesgo
+                )
+            case 2:
+                # Resultado esperado
+                print(f"\nDiagnostico del servidor: {nombre_servidor}\nSistema operativo: {sistema_operativo}\nUbicacion: {ubicacion_servidor}")
+                componentes.problemas_detectados(
+                    cpu,
+                    ram,
+                    espacio_disco,
+                    procesos_activos,
+                    firewall,
+                    estado_almacenamiento
+                )
+                componentes.recomendaciones(
+                    cpu,
+                    ram,
+                    procesos_activos,
+                    firewall,
+                    estado_almacenamiento,
+                    nivel_riesgo
+                )
+            case 3:
+                print("saliendo...")
+                break
+            case _:
+                print("Opcion no valida")
+                opcion = int(
+                    input("1. monitoreo de componentes\n""2. Diagnostico del servidor\n""3. salir\n"))

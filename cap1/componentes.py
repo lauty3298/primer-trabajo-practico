@@ -207,10 +207,10 @@ def monitoreo_estado_servidor(nombre_servidor, admin_name, sistema_operativo, cp
     Args:
         nombre_servidor (str): El nombre asignado al servidor.
         sistema_operativo (str): El SO que está corriendo.
-        cpu (int): Porcentaje de uso del CPU.
-        ram (int): Porcentaje de uso de la memoria RAM.
-        disco (int): Porcentaje de uso del disco.
-        espacio_disco (int): Espacio total o disponible en GB.
+        cpu (float): Porcentaje de uso del CPU.
+        ram (float): Porcentaje de uso de la memoria RAM.
+        disco (float): Porcentaje de uso del disco.
+        espacio_disco (float): Espacio total o disponible en GB.
         procesos_activos (int): Total de procesos corriendo.
         firewall (str): Estado del firewall.
         rendimiento_cpu (str): Estado del CPU con color.
