@@ -1,0 +1,193 @@
+ 
+
+Sistema de Diagnóstico y Configuración de Servidor Basado en Reglas 
+
+ 
+
+Modalidad 
+
+Trabajo grupal. 
+
+Desarrollo incremental por sprints. 
+
+Defensa oral obligatoria. 
+
+Evaluación por proceso y producto final. 
+
+ 
+
+Objetivo General 
+
+Desarrollar un sistema por consola que: 
+
+Procese múltiples datos relacionados con la configuración de un servidor. 
+
+Evalúe reglas lógicas. 
+
+Detecte estados de riesgo, errores o configuraciones mejorables. 
+
+Genere recomendaciones automáticas de administración. 
+
+ 
+
+SPRINT 1 – Motor de decisiones 
+
+Bloque conceptual – Fundamentos de la programación y algoritmia 
+
+Objetivo técnico 
+
+Desarrollar un sistema de diagnóstico que analice múltiples variables de configuración y uso de un servidor mediante reglas condicionales combinadas, generando alertas y recomendaciones técnicas. 
+
+ 
+
+Requerimientos obligatorios 
+
+Datos de entrada 
+
+El sistema deberá solicitar: 
+
+El ingreso de un mínimo de 10 datos de entrada. De los cuales: 
+
+Numéricos (5 mínimo). Ejemplos: 
+
+Uso de CPU (%) 
+
+Uso de memoria RAM (%) 
+
+Espacio libre en disco (GB) 
+
+Cantidad de usuarios conectados 
+
+Cantidad de procesos activos 
+
+Categóricos (3 mínimo). Opciones cerradas. Ejemplos: 
+
+Sistema operativo (Linux / Windows Server) 
+
+Estado del firewall (Activo / Inactivo) 
+
+Tipo de servidor (Web / Base de datos / Archivos) 
+
+Cadenas (2 mínimo) Ejemplos: 
+
+Nombre del servidor 
+
+Nombre del administrador responsable 
+
+ 
+
+ 
+
+Cada dato debe almacenarse en una variable claramente identificada. 
+
+  
+
+Las variables deberán relacionarse entre sí mediante distintos procesos y cálculos, permitiendo generar nuevas variables. 
+
+  
+
+Ejemplos: 
+
+Porcentaje total de carga 
+
+Nivel estimado de riesgo 
+
+Recursos disponibles 
+
+Estado general del servidor 
+
+ 
+
+Reglas 
+
+Debe implementarse: 
+
+Un mínimo de 8 reglas (condiciones que evalúen distintas variables). 
+
+  
+
+Las reglas deben incluir: 
+
+Reglas que utilicen 3 o más variables en la condición. 
+
+3 reglas con combinación AND / OR. 
+
+1 regla con NOT. 
+
+1 regla que evalúe rangos numéricos. 
+
+ 
+
+Ejemplos de reglas válidas 
+
+Si CPU > 85 AND RAM > 80 → sobrecarga crítica. 
+
+Si disco libre < 10 OR procesos > 250 → mantenimiento urgente. 
+
+Si NOT (firewall == Activo) → riesgo de seguridad. 
+
+Si CPU entre 40 y 70 AND RAM entre 40 y 70 → carga normal. 
+
+Si tipo = Web AND usuarios > 100 AND CPU > 75 → escalar recursos. 
+
+ 
+
+Restricciones 
+
+Las reglas: 
+
+Deben ser explícitas y no redundantes. 
+
+No deben depender solo de una variable. 
+
+No deben ser triviales. 
+
+Deben utilizar la mayor cantidad posible de datos ingresados o calculados. 
+
+ 
+
+Evaluación de reglas 
+
+Debe definirse claramente: 
+
+Orden de evaluación. 
+
+Si el sistema: 
+
+Devuelve la primera regla válida. 
+
+Acumula múltiples alertas y recomendaciones. 
+
+La decisión debe estar documentada. 
+
+ 
+
+Salida 
+
+La salida debe: 
+
+Ser explicativa y amigable para el usuario. 
+
+Utilizar tabulaciones, colores (colorama) NO OBLIGATORIO, separación visual, etc. 
+
+Justificar cada diagnóstico realizado. 
+
+No ser un simple print() aislado. Siempre utilizar f-string. 
+
+ 
+
+Entregables 
+
+Código funcional. 
+
+Documento con listado de reglas implementadas. 
+
+Breve explicación del flujo de decisión. 
+
+Ejemplo de ejecución real. 
+
+ 
+
+Resultado esperado (ejemplo) 
+
+ 
