@@ -1,5 +1,7 @@
-
 from colorama import Fore, Style, init
+#Paquete que permite trabajar colores y estilos
+
+#  ===Si colorama no esta dentro de tu biblioteca, generara un error en todos los Fore y Style===
 
 init(autoreset=True)
 
@@ -13,14 +15,18 @@ def estado_cpu(cpu):
     Returns:
         str: El estado de la CPU
     """
+
+#Aplicamos colores a los parametros: "normal, moderado, critico", estilo semaforo. 
+#Rendimiento del CPU - colorama
+
     if cpu <= 50:
-        rendimiento_cpu = Fore.GREEN + "Normal" + Style.RESET_ALL
+        rendimiento_cpu = Fore.GREEN + "Normal" + Style.RESET_ALL # verde
         return rendimiento_cpu
     elif cpu < 80:
-        rendimiento_cpu = Fore.YELLOW + "Moderado" + Style.RESET_ALL
+        rendimiento_cpu = Fore.YELLOW + "Moderado" + Style.RESET_ALL # amarillo
         return rendimiento_cpu
     else:
-        rendimiento_cpu = Fore.RED + "Critico" + Style.RESET_ALL
+        rendimiento_cpu = Fore.RED + "Critico" + Style.RESET_ALL # rojo
         return rendimiento_cpu
 
 def estado_ram(ram):
@@ -33,6 +39,8 @@ def estado_ram(ram):
     Returns:
         str: Como es la capacidad que queda del disco
     """
+
+#Rendimiento de la RAM - colorama
 
     if ram <= 50:
         rendimiento_ram = Fore.GREEN + "Normal" + Style.RESET_ALL
@@ -59,6 +67,8 @@ def porcentaje_uso_disco(espacio_disco, almacenamiento_disco):
     porcentaje_uso = (espacio_disco / almacenamiento_disco) * 100
     return porcentaje_uso
 
+#Estado de procesos - colorama
+
 def estado_procesos(procesos_activos):
     """
     Recibe la cantidad de procesos activos y devuele si esta cantidad es normal, moderada o alta 
@@ -75,6 +85,9 @@ def estado_procesos(procesos_activos):
         return Fore.YELLOW + "Moderado" + Style.RESET_ALL
     else:
         return Fore.RED + "Alto" + Style.RESET_ALL
+    
+
+#Estado del firewall - colorama
 
 def firewall_estado(firewall):
     """
@@ -90,6 +103,9 @@ def firewall_estado(firewall):
         return Fore.GREEN + "Activo" + Style.RESET_ALL
     else:
         return Fore.RED + "Desactivado" + Style.RESET_ALL
+
+#Estado de almacenamiento - colorama
+#Porcentaje uso del disco
 
 def estado_almacenamiento(porcentaje_uso_disco):
     """
@@ -165,6 +181,8 @@ def problemas_detectados(cpu, ram, espacio_disco, procesos_activos, firewall_est
     elif estado_almacenamiento == "moderado":
         print(f"Almacenamiento moderado: {espacio_disco} GB usados")
 
+#Recomendaciones 
+
 def recomendaciones(cpu, ram, procesos_activos, firewall_estado, estado_almacenamiento, nivel_riesgo):
     """
     Analiza las métricas del servidor y muestra sugerencias para optimizar el rendimiento.
@@ -199,6 +217,8 @@ def recomendaciones(cpu, ram, procesos_activos, firewall_estado, estado_almacena
         print("Monitorear el almacenamiento para evitar problemas de rendimiento")
     print("--------------------------------------")
     print(f"El nivel de riesgo es: {nivel_riesgo}")
+
+#monitoreo del estado del servidor
 
 def monitoreo_estado_servidor(nombre_servidor, admin_name, sistema_operativo, cpu, ram, disco, espacio_disco, procesos_activos, firewall, rendimiento_cpu, rendimiento_ram, rendimiento_disco, estado_almacenamiento, estado_procesos, nivel_riesgo):
     """
@@ -247,3 +267,5 @@ def estado_servidor(nombre_servidor, admin_name, sistema_operativo, ubicacion_se
     print(f"El estado de los procesos activos: {estado_procesos}")
     print(f"El nivel de riesgo: {nivel_riesgo}")
     print("------")
+
+

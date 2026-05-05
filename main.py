@@ -1,3 +1,5 @@
+#Importamos componentes.py que contiene logica aplicada en la ejecución del programa
+#Tambien contiene la logica de colorama para aplicar cambios visuales al programa.
 import componentes
 
 # Variables de entrada
@@ -110,7 +112,7 @@ while True:
                     nivel_riesgo
                 )
             case 3:
-                print("saliendo...")
+                print("\nsaliendo...")
                 break
             case _:
                 print("Opcion no valida")
