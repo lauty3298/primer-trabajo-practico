@@ -79,8 +79,8 @@ El nivel de riesgo: alto
 ## 👨‍💻 Autores
 
 Desarrollado por:
-Lautaro Vallejos
-Tomas Clara
+Lautaro Vallejos,
+Tomas Clara y
 Gaston Cespedes
 
 -------------------------------------------
