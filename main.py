@@ -2,11 +2,13 @@ from almacenamiento_procesos import porcentaje_uso_disco, estado_procesos, estad
 from estado_componentes import estado_cpu, estado_ram
 from seguridad import firewall_estado, nivel_riesgo, problemas_detectados
 from monitoreo_reportes import monitoreo_estado_servidor, estado_servidor, recomendaciones
+import inputs
 
 # Variables de entrada
 print("Bienvenido al sistema de monitoreo de servidores")
 
 nombre_servidor = input("Ingrese el nombre del servidor: ")
+
 admin_name = input("Ingrese el nombre del administrador del servidor: ")
 
 print("Seleccione el sistema operativo del servidor:")
@@ -59,11 +61,26 @@ match firewall:
         print("Opción no válida")
         firewall = input("Ingrese el estado del firewall: ")
 
-cpu = float(input("Ingrese el porcentaje de uso de CPU: "))
-ram = float(input("Ingrese el porcentaje de uso de RAM: "))
-almacenamiento_disco = float(input("Ingrese el espacio total del disco: "))
-espacio_disco = float(input("Ingrese el espacio usado del disco: "))
-procesos_activos = int(input("Ingrese la cantidad de procesos activos: "))
+#cpu = float(input("Ingrese el porcentaje de uso de CPU: "))
+cpu = inputs.ingreso_porcentaje_cpu()
+print(f"porcentaje cpu: {cpu}")
+
+#ram = float(input("Ingrese el porcentaje de uso de RAM: "))
+ram = inputs.ingreso_porcentaje_ram()
+print(f"porcentaje ram: {ram}")
+
+#almacenamiento_disco = float(input("Ingrese el espacio total del disco: "))
+almacenamiento_disco = inputs.ingreso_espacio_total_disco()
+print(f"total disco: {almacenamiento_disco}")
+
+#espacio_disco = float(input("Ingrese el espacio usado del disco: "))
+espacio_disco = inputs.ingreso_espacio_utilizado_disco(almacenamiento_disco)
+print(f"total espacio utilizado de disco: {espacio_disco}")
+
+
+#procesos_activos = int(input("Ingrese la cantidad de procesos activos: "))
+procesos_activos = inputs.ingreso_procesos_activos()
+print(f"Procesos activos: {procesos_activos}")
 
 # Variables calculadas
 rendimiento_cpu = estado_cpu(cpu)
