@@ -5,82 +5,35 @@ from monitoreo_reportes import monitoreo_estado_servidor, estado_servidor, recom
 import inputs
 
 # Variables de entrada
-print("Bienvenido al sistema de monitoreo de servidores")
+print("Bienvenido al sistema de monitoreo de servidores\n")
 
-nombre_servidor = input("Ingrese el nombre del servidor: ")
+nombre_servidor = inputs.ingreso_nombre_servidor()
 
-admin_name = input("Ingrese el nombre del administrador del servidor: ")
+admin_name = inputs.ingreso_nombre_admin_servidor()
 
-print("Seleccione el sistema operativo del servidor:")
-print("1. Windows")
-print("2. Linux")
+sistema_operativo = inputs.validar_sistema_operativo()
+print()
 
-sistema_operativo = input("Ingrese el sistema operativo del servidor: ")
+ubicacion_servidor = inputs.validar_ubicacion_servidor()
+print()
 
-match sistema_operativo:
-    case "Windows" | "windows" | "1":
-        sistema_operativo = "Windows"
-    case "Linux" | "linux" | "2":
-        sistema_operativo = "Linux"
-    case _:
-        print("Opción no válida")
-        sistema_operativo = input("Ingrese el sistema operativo del servidor: ")
+firewall = inputs.validar_firewall()
+print()
 
-print(
-    "Seleccione la ubicación del servidor:"
-    "\n1. Argentina"
-    "\n2. Chile"
-    "\n3. Uruguay"
-)
-
-ubicacion_servidor = input("Ingrese la ubicación del servidor: ")
-
-match ubicacion_servidor:
-    case "Argentina" | "argentina" | "1":
-        ubicacion_servidor = "Argentina"
-    case "Chile" | "chile" | "2":
-        ubicacion_servidor = "Chile"
-    case "Uruguay" | "uruguay" | "3":
-        ubicacion_servidor = "Uruguay"
-    case _:
-        print("Opción no válida")
-        ubicacion_servidor = input("Ingrese la ubicación del servidor: ")
-
-print("Seleccione el estado del firewall:")
-print("1. Activo")
-print("2. Desactivado")
-
-firewall = input("Ingrese el estado del firewall: ")
-
-match firewall:
-    case "Activo" | "activo" | "1":
-        firewall = "Activo"
-    case "Desactivado" | "desactivado" | "2":
-        firewall = "Desactivado"
-    case _:
-        print("Opción no válida")
-        firewall = input("Ingrese el estado del firewall: ")
-
-#cpu = float(input("Ingrese el porcentaje de uso de CPU: "))
 cpu = inputs.ingreso_porcentaje_cpu()
-print(f"porcentaje cpu: {cpu}")
+print()
 
-#ram = float(input("Ingrese el porcentaje de uso de RAM: "))
 ram = inputs.ingreso_porcentaje_ram()
-print(f"porcentaje ram: {ram}")
+print()
 
-#almacenamiento_disco = float(input("Ingrese el espacio total del disco: "))
 almacenamiento_disco = inputs.ingreso_espacio_total_disco()
-print(f"total disco: {almacenamiento_disco}")
+print()
 
-#espacio_disco = float(input("Ingrese el espacio usado del disco: "))
 espacio_disco = inputs.ingreso_espacio_utilizado_disco(almacenamiento_disco)
-print(f"total espacio utilizado de disco: {espacio_disco}")
+print()
 
-
-#procesos_activos = int(input("Ingrese la cantidad de procesos activos: "))
 procesos_activos = inputs.ingreso_procesos_activos()
-print(f"Procesos activos: {procesos_activos}")
+print()
 
 # Variables calculadas
 rendimiento_cpu = estado_cpu(cpu)
