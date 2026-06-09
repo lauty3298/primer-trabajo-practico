@@ -54,3 +54,33 @@ El programa incluye un menú interactivo:
 1. 🖥️ Monitoreo de componentes `[Actualizado con emojis]`
 2. 🔍 Diagnóstico del servidor `[Actualizado con emojis]`
 3. ❌ Salir `[Actualizado con emojis]`
+
+### 🔍 Monitoreo
+
+Muestra el estado completo del servidor.
+
+### ⚠️ Diagnóstico
+
+* Detecta problemas
+* Muestra recomendaciones
+* Indica el nivel de riesgo
+
+-------------------------------------------
+
+## 🎨 Ejemplo de salida
+
+-------------------------------------------
+🧠 El estado de la cpu: 85%: Critico
+⚡ El estado de la ram: 60%: Moderado
+⚠️ El nivel de riesgo: alto
+
+*(Los colores se visualizan correctamente en consola gracias a `colorama` y los emojis ayudan a identificar los componentes de un vistazo)*
+
+-------------------------------------------
+
+## 👨‍💻 Autores
+
+Desarrollado por:
+* Lautaro Vallejos
+* Gaston Cespedes
+* Adrian Robles
