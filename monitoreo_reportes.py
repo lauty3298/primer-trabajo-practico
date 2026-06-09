@@ -39,32 +39,32 @@ def monitoreo_estado_servidor(
         estado_procesos (str): Estado de los proceos
         nivel_riesgo (str): Clasificacion del estado de riesgo
     """
-    print(f"Nombre del servidor: {nombre_servidor}")
-    print(f"Administrador: {admin_name}")
-    print(f"Sistema operativo: {sistema_operativo}")
-    print(f"Estado del firewall: {firewall}")
+    print(f"⚙️ Nombre del servidor: {nombre_servidor}")
+    print(f"👤 Administrador: {admin_name}")
+    print(f"💿 Sistema operativo: {sistema_operativo}")
+    print(f"🧱 Estado del firewall: {firewall}")
     print("------")
-    print(f"El estado de la cpu: {cpu}%: {rendimiento_cpu}")
-    print(f"El estado de la ram: {ram}%: {rendimiento_ram}")
-    print(f"El estado del disco: {espacio_disco}%: {rendimiento_disco}")
-    print(f"El almacenamiento del disco: {espacio_disco} GB: {estado_almacenamiento}")
-    print(f"El estado de los procesos activos: {estado_procesos}({procesos_activos})")
-    print(f"El nivel de riesgo: {nivel_riesgo}")
+    print(f"🧠 El estado de la cpu: {cpu}%: {rendimiento_cpu}")
+    print(f"⚡ El estado de la ram: {ram}%: {rendimiento_ram}")
+    print(f"💾 El estado del disco: {espacio_disco}%: {rendimiento_disco}")
+    print(f"📦 El almacenamiento del disco: {espacio_disco} GB: {estado_almacenamiento}")
+    print(f"🔄 El estado de los procesos activos: {estado_procesos}({procesos_activos})")
+    print(f"⚠️ El nivel de riesgo: {nivel_riesgo}")
     print("------")
 
 def estado_servidor(nombre_servidor, admin_name, sistema_operativo, ubicacion_servidor,porcentaje_uso_disco,estado_procesos, firewall, rendimiento_cpu, rendimiento_ram, estado_almacenamiento, nivel_riesgo):
-    print(f"Nombre del servidor: {nombre_servidor}")
-    print(f"Administrador: {admin_name}")
-    print(f"Sistema operativo: {sistema_operativo}")
-    print(f"Ubicacion: {ubicacion_servidor}")
-    print(f"Estado del firewall: {firewall}")
+    print(f"⚙️ Nombre del servidor: {nombre_servidor}")
+    print(f"👤 Administrador: {admin_name}")
+    print(f"💿 Sistema operativo: {sistema_operativo}")
+    print(f"📍 Ubicacion: {ubicacion_servidor}")
+    print(f"🧱 Estado del firewall: {firewall}")
     print("------")
-    print(f"El estado de la cpu: {rendimiento_cpu}")
-    print(f"El estado de la ram: {rendimiento_ram}")
-    print(f"porcentaje del disco en uso: {porcentaje_uso_disco}%")
-    print(f"El almacenamiento del disco: {estado_almacenamiento}")
-    print(f"El estado de los procesos activos: {estado_procesos}")
-    print(f"El nivel de riesgo: {nivel_riesgo}")
+    print(f"🧠 El estado de la cpu: {rendimiento_cpu}")
+    print(f"⚡ El estado de la ram: {rendimiento_ram}")
+    print(f"💾 Porcentaje del disco en uso: {porcentaje_uso_disco}%")
+    print(f"📦 El almacenamiento del disco: {estado_almacenamiento}")
+    print(f"🔄 El estado de los procesos activos: {estado_procesos}")
+    print(f"⚠️ El nivel de riesgo: {nivel_riesgo}")
     print("------")
 
 #Recomendaciones 
@@ -82,7 +82,7 @@ def recomendaciones(cpu, ram, procesos_activos, firewall_estado, estado_almacena
         estado_almacenamiento (str): Clasificación actual del espacio en disco.
         nivel_riesgo (str): Nivel de riesgo calculado.
     """
-    print(Fore.GREEN + "\nRecomendaciones:" + Style.RESET_ALL)
+    print(Fore.GREEN + "\n💡 Recomendaciones:" + Style.RESET_ALL)
     if cpu > 80:
         print("Reiniciar el servidor para reducir el uso de la cpu")
     elif cpu > 50:
@@ -102,4 +102,4 @@ def recomendaciones(cpu, ram, procesos_activos, firewall_estado, estado_almacena
     elif estado_almacenamiento == "moderado":
         print("Monitorear el almacenamiento para evitar problemas de rendimiento")
     print("--------------------------------------")
-    print(f"El nivel de riesgo es: {nivel_riesgo}")
+    print(f"⚠️ El nivel de riesgo es: {nivel_riesgo}")
