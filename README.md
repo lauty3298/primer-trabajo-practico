@@ -2,12 +2,13 @@
 
 Este proyecto es una aplicación en Python que permite simular el monitoreo de un servidor, evaluando su estado en base a distintos parámetros como uso de CPU, RAM, disco, procesos activos y estado del firewall.
 
+> 🚀 **[NUEVO - SPRINT 2]:** El sistema evolucionó de un script funcional a un mini-sistema estructurado, aplicando el principio DRY (No te repitas), modularización en múltiples archivos `.py`, documentación interna con *docstrings* y un `main.py` limpio que actúa puramente como punto de entrada.
+
 -------------------------------------------
 
 ## 📌 Características
 
 * Monitoreo de:
-
   * CPU
   * Memoria RAM
   * Uso de disco
@@ -18,6 +19,7 @@ Este proyecto es una aplicación en Python que permite simular el monitoreo de u
 * Recomendaciones según el estado del sistema
 * Clasificación del nivel de riesgo (bajo, moderado, alto)
 * Salida en consola con colores (usando `colorama`)
+* 🖥️ **[NUEVO - SPRINT 2]:** Interfaz mejorada visualmente con emojis claros en menús y reportes para una lectura más amigable.
 
 -------------------------------------------
 
@@ -25,10 +27,10 @@ Este proyecto es una aplicación en Python que permite simular el monitoreo de u
 
 El sistema solicita al usuario información del servidor:
 
-* Nombre del servidor
-* Administrador
-* Sistema operativo
-* Ubicación
+* Nombre del servidor *(Mínimo 5 caracteres - SPRINT 2)*
+* Administrador *(Mínimo 5 caracteres - SPRINT 2)*
+* Sistema operativo *(Soporta mayúsculas/minúsculas de forma flexible - SPRINT 2)*
+* Ubicación *(Soporta mayúsculas/minúsculas de forma flexible - SPRINT 2)*
 * Estado del firewall
 * Uso de CPU y RAM
 * Uso de disco
@@ -40,6 +42,8 @@ Luego procesa estos datos mediante funciones del módulo `componentes.py` para:
 * Calcular el nivel de riesgo
 * Mostrar información detallada
 
+> 📂 **[NUEVO - SPRINT 2] Organización del Sistema:** La lógica ahora está completamente distribuida en módulos específicos (`inputs.py` para capturas, `validaciones.py` para controles robustos sin métodos prohibidos de listas, y `sistema.py` para el control de flujo del menú).
+
 -------------------------------------------
 
 ## 📋 Menú principal
@@ -47,42 +51,6 @@ Luego procesa estos datos mediante funciones del módulo `componentes.py` para:
 El programa incluye un menú interactivo:
 
 -------------------------------------------
-1. Monitoreo de componentes
-2. Diagnóstico del servidor
-3. Salir
-```
-
-### 🔍 Monitoreo
-
-Muestra el estado completo del servidor.
-
-### ⚠️ Diagnóstico
-
-* Detecta problemas
-* Muestra recomendaciones
-* Indica el nivel de riesgo
-
--------------------------------------------
-
-## 🎨 Ejemplo de salida
-
--------------------------------------------
-El estado de la cpu: 85%: Critico
-El estado de la ram: 60%: Moderado
-El nivel de riesgo: alto
-```
-
-*(Los colores se visualizan correctamente en consola gracias a `colorama`)*
-
--------------------------------------------
-
-## 👨‍💻 Autores
-
-Desarrollado por:
-Lautaro Vallejos,
-Tomas Clara y
-Gaston Cespedes
-
--------------------------------------------
-
-
+1. 🖥️ Monitoreo de componentes `[Actualizado con emojis]`
+2. 🔍 Diagnóstico del servidor `[Actualizado con emojis]`
+3. ❌ Salir `[Actualizado con emojis]`
