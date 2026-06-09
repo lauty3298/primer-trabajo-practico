@@ -58,11 +58,12 @@ def iniciar_monitoreo():
 
     # Menú
     # Se agregaron Emojis y estetica al menú de opciones.
-    opcion = 0
+    #opcion = 0
+    opcion = "0"  # Cambio papra que el programa no tire error si el ususario agrega un caracter diferente a 1,2,3
 
-    while opcion != 3:
+    while opcion != "3":
 
-        opcion = int(
+        opcion = (
             input(
                 "\n1. 🖥️  Monitoreo de componentes"
                 "\n2. 🔍 Diagnóstico del servidor"
@@ -73,7 +74,7 @@ def iniciar_monitoreo():
 
         match opcion:
 
-            case 1:
+            case "1":
 
                 monitoreo_estado_servidor(
                     nombre_servidor,
@@ -92,7 +93,7 @@ def iniciar_monitoreo():
                     riesgo
                 )
 
-            case 2:
+            case "2":
 
                 print(
                     f"\n🔍 Diagnóstico del servidor: {nombre_servidor}"
@@ -118,7 +119,7 @@ def iniciar_monitoreo():
                     riesgo
                 )
 
-            case 3:
+            case "3":
                 print("\n👋 Saliendo...")
                 break
 
