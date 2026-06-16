@@ -79,7 +79,9 @@ def ingreso_nombre_admin_servidor():
 
 
 
-# def validar_sistema_operativo():
+
+#linea de adrian
+def validar_sistema_operativo():
 #     """
 #     Solicita y valida que el sistema operativo ingresado pertenezca a la lista de permitidos.
 # 
@@ -107,9 +109,6 @@ def ingreso_nombre_admin_servidor():
 # 
 #     return so_ingresado  # Cuando sale del while, devuelve el SO válido
 
-
-#linea de adrian
-def validar_sistema_operativo():
     """
     Solicita y valida que el sistema operativo ingresado pertenezca a la lista de permitidos,
     aceptando tanto mayúsculas como minúsculas.
