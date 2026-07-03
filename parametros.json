@@ -1,0 +1,13 @@
+{
+    "server": "latam-srv01",
+    "dueño":"juansito",
+    "SO":"linux",
+    "ubicacion":"chile",
+    "procesos": 67,
+    "componentes":{
+        "cpu":45,
+        "ram": 35,
+        "almacenamiento": 360,
+        "uso_almacenamiento":55
+    } 
+}

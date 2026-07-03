@@ -3,6 +3,9 @@ from estado_componentes import estado_cpu, estado_ram
 from seguridad import firewall_estado, nivel_riesgo, problemas_detectados
 from monitoreo_reportes import monitoreo_estado_servidor, estado_servidor, recomendaciones
 import inputs
+from usar_json import leer_json, modificar_json
+
+parametro = leer_json()
 
 def iniciar_monitoreo():
     # Variables de entrada
