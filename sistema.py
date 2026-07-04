@@ -4,6 +4,7 @@ from seguridad import firewall_estado, nivel_riesgo, problemas_detectados
 from monitoreo_reportes import monitoreo_estado_servidor, estado_servidor, recomendaciones
 import inputs
 from usar_json import leer_json
+from editar_parametros import modificar_parametro
 
 def iniciar_monitoreo():
     # Variables de entrada
@@ -12,8 +13,6 @@ def iniciar_monitoreo():
     parametros = leer_json()
 
     componentes = parametros["componentes"]
-
-    parametro = leer_json()
     
     # Variables calculadas
     rendimiento_cpu = estado_cpu(componentes["cpu"])
@@ -41,13 +40,14 @@ def iniciar_monitoreo():
     #opcion = 0
     opcion = "0"  # Cambio papra que el programa no tire error si el ususario agrega un caracter diferente a 1,2,3
 
-    while opcion != "3":
+    while opcion != "4":
 
         opcion = (
             input(
                 "\n1. 🖥️  Monitoreo de componentes"
                 "\n2. 🔍 Diagnóstico del servidor"
-                "\n3. ❌ Salir"
+                "\n3. 🗄️ Modificar contenido "
+                "\n4. ❌ Salir"
                 "\n👉 Seleccione una opción: "
             )
         )
@@ -91,6 +91,9 @@ def iniciar_monitoreo():
                     )
 
             case "3":
+                modificar_parametro()
+                
+            case "4":
                 print("\n👋 Saliendo...")
                 break
 

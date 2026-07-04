@@ -1,14 +1,14 @@
 {
-    "server": "latam-srv01",
-    "dueño":"juansito",
-    "SO":"linux",
-    "ubicacion":"chile",
-    "procesos": 67,
-    "firewall": "Activo",
-    "componentes":{
-        "cpu":45,
-        "ram": 35,
-        "almacenamiento": 360,
-        "uso_almacenamiento":55
-    } 
+    "server": "latam-verso",
+    "dueño": "juanchopanza",
+    "SO": "mac",
+    "ubicacion": "chile",
+    "procesos": 523,
+    "firewall": "activo",
+    "componentes": {
+        "cpu": 23.0,
+        "ram": 89.0,
+        "almacenamiento": 500.0,
+        "uso_almacenamiento": 89.0
+    }
 }
