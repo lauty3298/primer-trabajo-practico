@@ -4,6 +4,7 @@
     "SO":"linux",
     "ubicacion":"chile",
     "procesos": 67,
+    "firewall": "Activo",
     "componentes":{
         "cpu":45,
         "ram": 35,

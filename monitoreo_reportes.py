@@ -1,17 +1,14 @@
 #monitoreo del estado del servidor
 from colorama import Fore, Style, init
+from usar_json import leer_json
+
+parametros = leer_json()
+
+componentes = parametros["componentes"]
 
 init(autoreset=True)
 
 def monitoreo_estado_servidor(
-                nombre_servidor,
-                admin_name,
-                sistema_operativo,
-                cpu,
-                ram, 
-                espacio_disco,
-                procesos_activos,
-                firewall,
                 rendimiento_cpu,
                 rendimiento_ram,
                 rendimiento_disco,
@@ -39,18 +36,21 @@ def monitoreo_estado_servidor(
         estado_procesos (str): Estado de los proceos
         nivel_riesgo (str): Clasificacion del estado de riesgo
     """
-    print(f"⚙️ Nombre del servidor: {nombre_servidor}")
-    print(f"👤 Administrador: {admin_name}")
-    print(f"💿 Sistema operativo: {sistema_operativo}")
-    print(f"🧱 Estado del firewall: {firewall}")
-    print("------")
-    print(f"🧠 El estado de la cpu: {cpu}%: {rendimiento_cpu}")
-    print(f"⚡ El estado de la ram: {ram}%: {rendimiento_ram}")
-    print(f"💾 El estado del disco: {espacio_disco}%: {rendimiento_disco}")
-    print(f"📦 El almacenamiento del disco: {espacio_disco} GB: {estado_almacenamiento}")
-    print(f"🔄 El estado de los procesos activos: {estado_procesos}({procesos_activos})")
-    print(f"⚠️ El nivel de riesgo: {nivel_riesgo}")
-    print("------")
+
+    print(
+        f"⚙️ Nombre del servidor {parametros["server"]}\n",
+        f"👤 Administrador: {parametros["dueño"]}\n",
+        f"💿 Sistema operativo: {parametros["SO"]}\n",
+        f"🧱 Estado del firewall: {parametros["firewall"]}\n",
+        f"------ \n" ,
+        f"🧠 El estado de la cpu: {componentes["cpu"]}%: {rendimiento_cpu}\n",
+        f"⚡ El estado de la ram: {componentes["ram"]}%: {rendimiento_ram}\n",
+        f"💾 El estado del disco: {componentes["almacenamiento"]}%: {rendimiento_disco}\n",
+        f"📦 El almacenamiento del disco: {componentes["uso_almacenamiento"]}GB: {estado_almacenamiento}\n",
+        f"🔄 El estado de los procesos activos: {estado_procesos}({"procesos"})\n",
+        f"⚠️ El nivel de riesgo: {nivel_riesgo}\n",
+        f"------ \n"
+    )
 
 def estado_servidor(nombre_servidor, admin_name, sistema_operativo, ubicacion_servidor,porcentaje_uso_disco,estado_procesos, firewall, rendimiento_cpu, rendimiento_ram, estado_almacenamiento, nivel_riesgo):
     print(f"⚙️ Nombre del servidor: {nombre_servidor}")
@@ -69,7 +69,14 @@ def estado_servidor(nombre_servidor, admin_name, sistema_operativo, ubicacion_se
 
 #Recomendaciones 
 
-def recomendaciones(cpu, ram, procesos_activos, firewall_estado, estado_almacenamiento, nivel_riesgo):
+def recomendaciones(
+    cpu,
+    ram,
+    procesos_activos,
+    firewall_estado, 
+    estado_almacenamiento, 
+    nivel_riesgo
+    ):
     """
     Analiza las métricas del servidor y muestra sugerencias para optimizar el rendimiento.
 

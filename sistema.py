@@ -3,59 +3,36 @@ from estado_componentes import estado_cpu, estado_ram
 from seguridad import firewall_estado, nivel_riesgo, problemas_detectados
 from monitoreo_reportes import monitoreo_estado_servidor, estado_servidor, recomendaciones
 import inputs
-from usar_json import leer_json, modificar_json
-
-parametro = leer_json()
+from usar_json import leer_json
 
 def iniciar_monitoreo():
     # Variables de entrada
     print("Bienvenido al sistema de monitoreo de servidores\n")
 
-    nombre_servidor = inputs.ingreso_nombre_servidor()
-    admin_name = inputs.ingreso_nombre_admin_servidor()
+    parametros = leer_json()
 
-    sistema_operativo = inputs.validar_sistema_operativo()
-    print()
+    componentes = parametros["componentes"]
 
-    ubicacion_servidor = inputs.validar_ubicacion_servidor()
-    print()
-
-    firewall = inputs.validar_firewall()
-    print()
-
-    cpu = inputs.ingreso_porcentaje_cpu()
-    print()
-
-    ram = inputs.ingreso_porcentaje_ram()
-    print()
-
-    almacenamiento_disco = inputs.ingreso_espacio_total_disco()
-    print()
-
-    espacio_disco = inputs.ingreso_espacio_utilizado_disco(almacenamiento_disco)
-    print()
-
-    procesos_activos = inputs.ingreso_procesos_activos()
-    print()
-
+    parametro = leer_json()
+    
     # Variables calculadas
-    rendimiento_cpu = estado_cpu(cpu)
-    rendimiento_ram = estado_ram(ram)
+    rendimiento_cpu = estado_cpu(componentes["cpu"])
+    rendimiento_ram = estado_ram(componentes["ram"])
 
     rendimiento_disco = porcentaje_uso_disco(
-        espacio_disco,
-        almacenamiento_disco
+        componentes["almacenamiento"],
+        componentes["uso_almacenamiento"]
     )
 
     estado_alm = estado_almacenamiento(rendimiento_disco)
-    estado_proc = estado_procesos(procesos_activos)
+    estado_proc = estado_procesos(parametros["procesos"])
 
     riesgo = nivel_riesgo(
-        cpu,
-        ram,
+        componentes["cpu"],
+        componentes["ram"],
         rendimiento_disco,
-        procesos_activos,
-        firewall,
+        parametros["procesos"],
+        parametros["firewall"],
         estado_alm
     )
 
@@ -80,28 +57,19 @@ def iniciar_monitoreo():
             case "1":
 
                 monitoreo_estado_servidor(
-                    nombre_servidor,
-                    admin_name,
-                    sistema_operativo,
-                    cpu,
-                    ram,
-                    espacio_disco,
-                    procesos_activos,
-                    firewall,
-                    rendimiento_cpu,
-                    rendimiento_ram,
-                    rendimiento_disco,
-                    estado_alm,
-                    estado_proc,
-                    riesgo
-                )
-
+                rendimiento_cpu,
+                rendimiento_ram,
+                rendimiento_disco,
+                estado_almacenamiento,
+                estado_procesos,
+                nivel_riesgo)
+        
             case "2":
 
                 print(
-                    f"\n🔍 Diagnóstico del servidor: {nombre_servidor}"
-                    f"\n💿 Sistema operativo: {sistema_operativo}"
-                    f"\n📍 Ubicación: {ubicacion_servidor}"
+                    f"\n🔍 Diagnóstico del servidor: {parametros["server"]}"
+                    f"\n💿 Sistema operativo: {parametros["SO"]}"
+                    f"\n📍 Ubicación: {parametros["ubicacion"]}"
                 )
 
                 print(f"🧠 CPU: {rendimiento_cpu}")
@@ -109,18 +77,18 @@ def iniciar_monitoreo():
                 print(f"💾 Disco: {estado_alm}")
                 print(f"🔄 Procesos: {estado_proc}")
 
-                firewall_estado(firewall)
+                firewall_estado(parametros["firewall"])
 
                 print(f"⚠️ Nivel de riesgo: {riesgo}")
 
                 recomendaciones(
-                    cpu,
-                    ram,
-                    procesos_activos,
-                    firewall,
+                    componentes["cpu"],
+                    componentes["ram"],
+                    parametros["procesos"],
+                    parametros["firewall"],
                     estado_alm,
                     riesgo
-                )
+                    )
 
             case "3":
                 print("\n👋 Saliendo...")
