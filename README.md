@@ -91,18 +91,6 @@ Se agregó:
  Esto permite agrupar los datos gnenerales en el primer nivel y aislar las metricas del hardware en un sub-diccionario 
  facilitando su lectura y escalabilidad.
 
-**Estructura principal:**
-    * `server` (str): Nombre del servidor.
-    * `dueño` (str): Nombre del administrador responsable.
-    * `SO` (str): Sistema operativo utilizado.
-    * `ubicacion` (str): Ubicación física o lógica del servidor.
-    * `procesos` (int): Cantidad de procesos activos detectados.
-    * `firewall` (str): Estado del firewall (`activo`/`inactivo`).
-    * `componentes` (dict): Sub-diccionario que contiene los umbrales de alerta:
-        * `cpu` (float): Porcentaje límite o actual de uso de CPU.
-        * `ram` (float): Porcentaje límite o actual de uso de memoria RAM.
-        * `almacenamiento` (float): Espacio total disponible en disco.
-        * `uso_almacenamiento` (float): Espacio ocupado en disco.
 
 ### 📂 Vista del archivo `parametros.json`
 
