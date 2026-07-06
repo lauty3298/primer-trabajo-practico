@@ -10,13 +10,18 @@ from inputs import (
     )
 
 def modificar_parametro():
-
+    """
+    Despliega el menu interactivo para modificar los parametros del servidor.
+    Carga la configuracion actual JSON y presenta un menu con opciones para alterar campos especificos del sistema.
+    Esto se ejecuta hasta que el usuario elige la opcion de salida ("11")
+    Esta funcion delega la persistencia de los cambios en la funcion modificar_json 
+    """
     parametros = leer_json()
 
     componentes = parametros["componentes"]
 
     opcion = 0
-
+    eleccion = ""
     while opcion != "11":
 
         print(
@@ -55,8 +60,7 @@ def modificar_parametro():
                     "\n2. linux"
                     "\n3. mac"
                     "\nque sistema operativo esta usando?: "
-                    )
-
+                )
                 match eleccion:
                     case "1":
                         parametros["SO"] = "windowns"
