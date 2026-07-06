@@ -78,6 +78,105 @@ Muestra el estado completo del servidor.
 
 -------------------------------------------
 
+NUEVO SPRINT 3: PERSISTENCIA DE DATOS
+
+Se agregó:
+• Uso de diccionarios. 
+• Manejo de archivos.  
+• Persistencia de datos. 
+• Reutilización de la información almacenada. 
+
+# 1. Estructura de los diccionarios:
+ Para la getion y monitoreo del servidor, se utiliza una estructura de diccionario anidada en PYTHON.
+ Esto permite agrupar los datos gnenerales en el primer nivel y aislar las metricas del hardware en un sub-diccionario 
+ facilitando su lectura y escalabilidad.
+
+**Estructura principal:**
+    * `server` (str): Nombre del servidor.
+    * `dueño` (str): Nombre del administrador responsable.
+    * `SO` (str): Sistema operativo utilizado.
+    * `ubicacion` (str): Ubicación física o lógica del servidor.
+    * `procesos` (int): Cantidad de procesos activos detectados.
+    * `firewall` (str): Estado del firewall (`activo`/`inactivo`).
+    * `componentes` (dict): Sub-diccionario que contiene los umbrales de alerta:
+        * `cpu` (float): Porcentaje límite o actual de uso de CPU.
+        * `ram` (float): Porcentaje límite o actual de uso de memoria RAM.
+        * `almacenamiento` (float): Espacio total disponible en disco.
+        * `uso_almacenamiento` (float): Espacio ocupado en disco.
+
+# 2. Formato de Archivo Utilizado
+Se seleccionó el formato JSON (`.json`) para la persistencia de datos a través del archivo `parametros.json`. Las razones de su elección son:
+*Compatibilidad nativa:* Python lo transforma directamente en un diccionario mediante la librería estándar `json` (`json.load` y `json.dump`).
+*Legibilidad:* Al guardarse con indentación de 4 espacios y codificación `utf-8`, permite que cualquier administrador lea o edite la configuración de forma externa fácilmente.
+
+# 3. Organización de los Módulos del Proyecto
+El proyecto está estructurado de forma modular para respetar el principio de *responsabilidad única*, separando la interfaz de usuario, las validaciones, la lógica del Sistema  y la persistencia:
+
+```
+primer-trabajo-practico/
+│
+├── main.py                   # Punto de entrada de la aplicación. 
+├── sistema.py                # Módulo principal de control y manejo del monitoreo.
+├── editar_parametros.py      # Interfaz de usuario (menús de consola) para modificar datos.
+├── usar_json.py              # Capa de persistencia (Lectura y escritura del archivo JSON).
+├── inputs.py                 # Captura de datos ingresados por el usuario por teclado.
+├── validaciones.py           # Funciones de control (asegura datos correctos).
+├── estado_componentes.py     # Lógica matemática y cálculos de rendimiento del hardware.
+├── monitoreo_reportes.py     # Generación de alertas, recomendaciones.
+├── seguridad.py              # Módulo encargado de informar los problemas detectados y niveles de riesgo.
+│
+├── parametros.json           # Archivo físico donde se guardan los parámetros.
+└── README.md                 # Documentación general del proyecto.
+```
+---------------------------------------------------
+
+# 📋 Menú principal
+
+1. 🖥️  Monitoreo de componentes
+2. 🔍 Diagnóstico del servidor
+3. 🗄️ Modificar contenido 
+4. ❌ Salir
+👉 Seleccione una opción: 1
+
+⚙️ Nombre del servidor latam-verso
+👤 Administrador: juanchopanza
+💿 Sistema operativo: linux
+🧱 Estado del firewall: activo
+------ 
+🧠 El estado de la cpu: 23.0%: Normal
+⚡ El estado de la ram: 89.0%: Critico
+💾 El estado del disco: 500.0%: 561.7977528089888
+📦 El almacenamiento del disco: 89.0GB: <function estado_almacenamiento at 0x000001D2CA333950>
+🔄 El estado de los procesos activos: <function estado_procesos at 0x000001D2CA3338A0>(procesos)
+
+------
+1. 🖥️  Monitoreo de componentes
+2. 🔍 Diagnóstico del servidor
+3. 🗄️ Modificar contenido 
+4. ❌ Salir
+👉 Seleccione una opción: 3
+
+1. nombre de servidor
+2. nombre del admin
+3. sistema operativo
+4. ubicacion
+5. firewall
+6. procesos activos
+7. uso del cpu
+8. uso de la ram
+9. espacio total del almacenamiento
+10. espacio ocupado del almacenamiento
+11. salir
+    
+que desea cambiar?: 3
+1. windowns
+2. linux
+3. mac
+   
+Que sistema operativo esta usando?: 3
+Cambiado exitosamente.
+
+ 
 ## 👨‍💻 Autores
 
 Desarrollado por:
