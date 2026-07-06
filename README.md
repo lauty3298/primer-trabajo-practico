@@ -104,6 +104,22 @@ Se agregó:
         * `almacenamiento` (float): Espacio total disponible en disco.
         * `uso_almacenamiento` (float): Espacio ocupado en disco.
 
+# 📂 Vista del archivo `parametros.json`
+{
+    "server": "latam-verso",
+    "dueño": "juanchopanza",
+    "SO": "mac",
+    "ubicacion": "argentina",
+    "procesos": 523,
+    "firewall": "activo",
+    "componentes": {
+        "cpu": 23.0,
+        "ram": 89.0,
+        "almacenamiento": 500.0,
+        "uso_almacenamiento": 89.0
+    }
+}
+
 # 2. Formato de Archivo Utilizado
 Se seleccionó el formato JSON (`.json`) para la persistencia de datos a través del archivo `parametros.json`. Las razones de su elección son:
 *Compatibilidad nativa:* Python lo transforma directamente en un diccionario mediante la librería estándar `json` (`json.load` y `json.dump`).
